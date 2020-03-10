@@ -112,7 +112,7 @@ module.exports = function Email(sails) {
       } else {
 
         try {
-          if (sails.config[self.configKey].transporter) {
+          if (!sails.config[self.configKey].transporter) {
             // If custom transporter is set, use that first
             transport = nodemailer.createTransport(sails.config[self.configKey].transporter);
           } else {
